@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-shimmer: shimmer 3s linear infinite;
+  
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}

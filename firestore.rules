@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /projects/{document} {
+      allow read: if true;
+      allow create: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+      allow update: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+      allow delete: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+    }
+    match /settings/{document} {
+      allow read: if true;
+      allow create: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+      allow update: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+      allow delete: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+    }
+    match /messages/{document} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+    }
+    match /page_content/{document} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null && request.auth.token.email == 'owen.klea@gmail.com';
+    }
+  }
+}

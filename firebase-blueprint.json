@@ -1,0 +1,37 @@
+{
+  "schemas": {
+    "projects": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "detailedDescription": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "shape": { "type": "string" },
+        "size": { "type": "string" },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          }
+        },
+        "date": { "type": "timestamp" },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      }
+    }
+  },
+  "rules": {
+    "projects": {
+      "read": "true",
+      "create": "request.auth != null && request.auth.token.email == 'owen.klea@gmail.com'",
+      "update": "request.auth != null && request.auth.token.email == 'owen.klea@gmail.com'",
+      "delete": "request.auth != null && request.auth.token.email == 'owen.klea@gmail.com'"
+    }
+  }
+}
